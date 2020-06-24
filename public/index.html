@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> -->
+    <!-- Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:600,700&display=swap">
+</head>
+
+<body>
+    <!-- <canvas class="fireworks"></canvas> -->
+    <div class="score-board">
+        <h1>
+            Rock
+            <br> Paper
+            <br> Scissors
+            <br> Lizard
+            <br> Spock
+        </h1>
+        <div class="score-tile">
+            <h3 class="score-text">Score</h3>
+            <span class="score-number" id="score"></span>
+        </div>
+    </div>
+
+
+    <div class="weapons" id="first-one">
+        <div class="top-most-row">
+            <button id="Scissor" value="Scissor">
+                <div class="scissors-layer" data-value="Scissor">
+                    <img class="scissors-icon" src="./images/icon-scissors.svg" alt="Scissor">
+                </div>
+            </button>
+        </div>
+        <div class="middle-row">
+            <div class="custom-padding">
+                <button id="Spock" value="Spock">
+                    <div class="spock-layer" data-value="Spock">
+                        <img class="spock-icon" src="./images/icon-spock.svg" alt="Spock">
+                    </div>
+                </button>
+            </div>
+            <button id="Paper" value="Paper">
+                <div class="paper-layer" data-value="Paper">
+                    <img class="paper-icon" src="./images/icon-paper.svg" alt="Paper">
+                </div>
+          </button>
+        </div>
+
+        <div class="bottom-most-row">
+            <div class="bottom-row-padding">
+                <button id="Lizard" value="Lizard">
+                    <div class="lizard-layer" data-value="Lizard">
+                        <img class="lizard-icon" src="./images/icon-lizard.svg" alt="Lizard">
+                    </div>
+                </button>
+            </div>
+            <button id="Rock" value="Rock">
+                <div class="rock-layer" data-value="Rock">
+                    <img class="rock-icon" src="./images/icon-rock.svg" alt="Rock">
+                </div>
+          </button>
+        </div>
+    </div>
+    <div id="result" class="layer-step-two">
+        <div class="user-weapon-layer shift-you-picked">
+            <p>You picked</p>
+            <div class="paper-big-layer" id="uPaperPicked">
+                <img class="paper-icon-big" src="./images/icon-paper.svg" alt="Paper icon">
+            </div>
+            <div class="scissors-big-layer" id="uScissorsPicked">
+                <img class="scissors-icon-big" src="./images/icon-scissors.svg" alt="Scissors icon">
+            </div>
+            <div class="rock-big-layer" id="uRockPicked">
+                <img class="rock-icon-big" src="./images/icon-rock.svg" alt="Rock icon">
+            </div>
+            <div class="lizard-big-layer" id="uLizardPicked">
+                <img class="lizard-icon-big" src="./images/icon-lizard.svg" alt="Lizard icon">
+            </div>
+            <div class="spock-big-layer" id="uSpockPicked">
+                <img class="spock-icon-big" src="./images/icon-spock.svg" alt="Spock icon">
+            </div>
+        </div>
+
+
+        <div class="battleWinner">
+            <div id="drawMsg" class="draw">
+                <h4>Draw</h4>
+            </div>
+            <div id="winMsg" class="win">
+                <h4>You Win</h4>
+            </div>
+            <div id="loseMsg" class="lose">
+                <h4>You Lose</h4>
+            </div>
+            <button id="retry" class="play-again">Play Again</button>
+        </div>
+
+        <div class="machine-weapon-layer shift-house-picked">
+            <p>The house picked</p>
+            <div class="baseAnime animateHousePick" id="mPaperPicked">
+                <div class="paper-big-layer">
+                    <img class="paper-icon-big" src="./images/icon-paper.svg" alt="Paper icon">
+                </div>
+            </div>
+            <div class="baseAnime animateHousePick" id="mScissorsPicked">
+                <div class="scissors-big-layer">
+                    <img class="scissors-icon-big" src="./images/icon-scissors.svg" alt="Scissors icon">
+                </div>
+            </div>
+            <div class="baseAnime animateHousePick" id="mRockPicked">
+                <div class="rock-big-layer">
+                    <img class="rock-icon-big" src="./images/icon-rock.svg" alt="Rock icon">
+                </div>
+            </div>
+            <div class="baseAnime animateHousePick" id="mLizardPicked">
+                <div class="lizard-big-layer">
+                    <img class="lizard-icon-big" src="./images/icon-lizard.svg" alt="Lizard icon">
+                </div>
+            </div>
+            <div class="baseAnime animateHousePick" id="mSpockPicked">
+                <div class="spock-big-layer">
+                    <img class="spock-icon-big" src="./images/icon-spock.svg" alt="Spock icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rules-div">
+        <button id="rules" data-toggle="modal" data-target="#myModal" class="rules-btn">Rules</button>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title textColor float-left">Rules</h2>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img class="rounded mx-auto d-block" src="./images/image-rules-bonus.svg" alt="Rules svg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="anime.es.js"></script>
+    <script src="anime.js"></script>
+    <script src="anime.min.js"></script> -->
+    <script src="index.js"></script>
+
+</body>
+
+</html>
