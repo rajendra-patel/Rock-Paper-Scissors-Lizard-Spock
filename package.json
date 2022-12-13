@@ -19,7 +19,7 @@
     "homepage": "https://github.com/trafalgarDWaterLaw/hit-the-course#readme",
     "dependencies": {
         "animejs": "^3.2.0",
-        "express": "^4.17.1"
+        "express": "^4.17.3"
     },
     "engines": {
         "node": "10.15.3",
